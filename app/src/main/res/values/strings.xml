@@ -6,6 +6,9 @@
     <string name="logo_desc">Logotype icon</string>
     <string name="menu_desc">Menu icon</string>
     <string name="back_desc">Back icon</string>
+    <string name="eye_desc">Eye icon</string>
+    <string name="dislike_desc">Dislike icon</string>
+    <string name="like_desc">Like icon</string>
 
     <string name="generator_loader_inactive_desc">Inactive generator image</string>
     <string name="generator_loader_active_desc">Active generator image</string>

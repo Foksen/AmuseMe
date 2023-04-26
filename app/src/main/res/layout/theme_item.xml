@@ -75,6 +75,7 @@
             app:layout_constraintTop_toBottomOf="@id/themeTitle"
             android:text="@string/theme_desc_holder"
             android:fontFamily="@font/montserrat_medium"
+            android:textSize="14sp"
             android:textColor="@color/tempDarkWhite"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp" />

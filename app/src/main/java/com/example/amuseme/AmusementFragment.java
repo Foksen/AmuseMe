@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.amuseme.databinding.FragmentAmusementBinding;
 
@@ -72,6 +73,16 @@ public class AmusementFragment extends Fragment {
             }
         });
 
+        binding.controlBarBack.setOnClickListener((View v) -> {
+            moveToGeneratorFragment();
+        });
+
         return binding.getRoot();
+    }
+
+    private void moveToGeneratorFragment() {
+        Navigation
+                .findNavController(binding.getRoot())
+                .navigate(R.id.action_amusementFragment_to_generatorFragment);
     }
 }

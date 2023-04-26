@@ -19,7 +19,11 @@
         android:id="@+id/amusementFragment"
         android:name="com.example.amuseme.AmusementFragment"
         android:label="AmusementFragment"
-        tools:layout="@layout/fragment_amusement"/>
+        tools:layout="@layout/fragment_amusement">
+        <action
+            android:id="@+id/action_amusementFragment_to_generatorFragment"
+            app:destination="@id/generatorFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/generatorFragment"
@@ -29,6 +33,9 @@
         <action
             android:id="@+id/action_generatorFragment_to_themesFragment"
             app:destination="@id/themesFragment" />
+        <action
+            android:id="@+id/action_generatorFragment_to_amusementFragment"
+            app:destination="@id/amusementFragment" />
     </fragment>
 
 </navigation>

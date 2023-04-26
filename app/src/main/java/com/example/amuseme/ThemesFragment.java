@@ -31,6 +31,7 @@ public class ThemesFragment extends Fragment {
         binding.recyclerView.setAdapter(adapter);
 
         binding.controlBarBack.setOnClickListener((View v) -> {
+            // TODO: make animation during navigation
             moveToGeneratorFragment();
         });
 
@@ -54,6 +55,5 @@ public class ThemesFragment extends Fragment {
         Navigation
                 .findNavController(binding.getRoot())
                 .navigate(R.id.action_themesFragment_to_generatorFragment);
-        onDestroy();    // TODO: Check which method we should run when navigate between fragments
     }
 }
