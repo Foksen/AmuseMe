@@ -1,6 +1,7 @@
 package com.example.amuseme;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.amuseme.databinding.FragmentThemesBinding;
@@ -28,10 +30,14 @@ public class ThemesFragment extends Fragment {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.recyclerView.setAdapter(adapter);
 
+        binding.controlBarBack.setOnClickListener((View v) -> {
+            moveToGeneratorFragment();
+        });
+
         return binding.getRoot();
     }
 
-    void initThemes() {
+    private void initThemes() {
         themes = new ArrayList<>();
 
         themes.add(new Theme(
@@ -43,6 +49,11 @@ public class ThemesFragment extends Fragment {
                 "Возможно, стоит немного размять тело? Физическая нагрузка полезна для человека!",
                 R.drawable.theme_img_2, R.drawable.theme_img_2_bw));
     }
-}
 
-// TODO: add shadow for cards
+    private void moveToGeneratorFragment() {
+        Navigation
+                .findNavController(binding.getRoot())
+                .navigate(R.id.action_themesFragment_to_generatorFragment);
+        onDestroy();    // TODO: Check which method we should run when navigate between fragments
+    }
+}
