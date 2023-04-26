@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/generatorFragment">
+
+    <fragment
+        android:id="@+id/themesFragment"
+        android:name="com.example.amuseme.ThemesFragment"
+        android:label="fragment_themes"
+        tools:layout="@layout/fragment_themes">
+        <action
+            android:id="@+id/action_themesFragment_to_generatorFragment"
+            app:destination="@id/generatorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/amusementFragment"
+        android:name="com.example.amuseme.AmusementFragment"
+        android:label="AmusementFragment"
+        tools:layout="@layout/fragment_amusement"/>
+
+    <fragment
+        android:id="@+id/generatorFragment"
+        android:name="com.example.amuseme.GeneratorFragment"
+        android:label="fragment_generator"
+        tools:layout="@layout/fragment_generator" >
+        <action
+            android:id="@+id/action_generatorFragment_to_themesFragment"
+            app:destination="@id/themesFragment" />
+    </fragment>
+
+</navigation>

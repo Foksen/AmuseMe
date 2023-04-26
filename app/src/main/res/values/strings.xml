@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Amuse Me</string>
+
+    <string name="zero">0</string>
+
+    <string name="logo_desc">Logotype icon</string>
+    <string name="menu_desc">Menu icon</string>
+    <string name="back_desc">Back icon</string>
+
+    <string name="generator_loader_inactive_desc">Inactive generator image</string>
+    <string name="generator_loader_active_desc">Active generator image</string>
+    <string name="generator_help">Чтобы получить идею для\nзанатия удерживайте…</string>
+
+    <string name="themes_fragment_title">Выбор тем</string>
+    <string name="theme_img_desc">Theme card image</string>
+    <string name="theme_img_bw_desc">Theme card image (black-white)</string>
+    <string name="theme_title_holder">Theme title</string>
+    <string name="theme_desc_holder">Theme holder. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat bibendum placerat</string>
+
+    <string name="amusement_img_desc">Amusement card image</string>
+    <string name="amusement_title_holder">Amusement title</string>
+    <string name="amusement_desc_holder">Amusement holder. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPellentesque quis ex vitae nulla maximus cursus. Aenean lorem elit, mattis sit amet euismod eu, mollis vel justo</string>
+</resources>
