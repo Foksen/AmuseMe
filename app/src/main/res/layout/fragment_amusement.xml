@@ -44,7 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/amusementDesc"
             android:text="@string/amusement_title_holder"
-            android:fontFamily="@font/montserrat_bold"
+            android:fontFamily="@font/roboto_medium"
             android:textSize="26sp"
             android:textColor="@color/tempWhite"
             android:layout_marginBottom="6dp"/>
@@ -58,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/amusementButtonsContainer"
             android:text="@string/amusement_desc_holder"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/roboto_regular"
             android:textSize="18sp"
             android:textColor="@color/tempDarkWhite"
             android:layout_marginBottom="20dp"/>
@@ -88,7 +88,7 @@
                 android:id="@+id/amusementViewsText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/roboto_medium"
                 android:text="@string/zero"
                 android:textColor="@color/tempWhite"
                 android:textSize="16sp"
@@ -133,7 +133,7 @@
                 android:id="@+id/amusementDislikesText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/roboto_medium"
                 android:text="@string/zero"
                 android:textColor="@color/tempWhite"
                 android:textSize="16sp"
@@ -170,7 +170,7 @@
                 android:id="@+id/amusementLikesText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/roboto_medium"
                 android:text="@string/zero"
                 android:textColor="@color/tempWhite"
                 android:textSize="16sp"
@@ -188,8 +188,6 @@
         android:id="@+id/controlBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -206,7 +204,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"/>
+            app:layout_constraintHorizontal_bias="0"
+            app:tint="@color/tempWhite"
+            android:layout_marginStart="4dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -45,8 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="1"
         android:background="@drawable/theme_card_shadow"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp">
+        android:padding="18dp">
 
         <TextView
             android:id="@+id/themeTitle"
@@ -58,12 +57,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
             android:text="@string/theme_title_holder"
-            android:fontFamily="@font/montserrat_bold"
-            android:textSize="16sp"
-            android:layout_marginBottom="2dp"
-            android:textColor="@color/tempWhite"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="18sp"
+            android:textColor="@color/tempWhite"/>
 
         <TextView
             android:id="@+id/themeDesc"
@@ -74,15 +70,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/themeTitle"
             android:text="@string/theme_desc_holder"
-            android:fontFamily="@font/montserrat_medium"
-            android:textSize="14sp"
-            android:textColor="@color/tempDarkWhite"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp" />
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            android:textColor="@color/tempDarkWhite"/>
 
         <CheckBox
             android:id="@+id/themeCheckbox"
-            android:visibility="invisible"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
