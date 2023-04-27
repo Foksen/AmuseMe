@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.amuseme.databinding.FragmentThemesBinding;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ThemesFragment extends Fragment {
     FragmentThemesBinding binding;
@@ -32,7 +33,9 @@ public class ThemesFragment extends Fragment {
 
         binding.controlBarBack.setOnClickListener((View v) -> {
             // TODO: make animation during navigation
-            moveToGeneratorFragment();
+            Navigation
+                    .findNavController(binding.getRoot())
+                    .popBackStack();
         });
 
         return binding.getRoot();
@@ -49,11 +52,5 @@ public class ThemesFragment extends Fragment {
                 "Физическая активность",
                 "Возможно, стоит немного размять тело? Физическая нагрузка полезна для человека!",
                 R.drawable.theme_img_2, R.drawable.theme_img_2_bw));
-    }
-
-    private void moveToGeneratorFragment() {
-        Navigation
-                .findNavController(binding.getRoot())
-                .navigate(R.id.action_themesFragment_to_generatorFragment);
     }
 }

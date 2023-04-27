@@ -74,15 +74,11 @@ public class AmusementFragment extends Fragment {
         });
 
         binding.controlBarBack.setOnClickListener((View v) -> {
-            moveToGeneratorFragment();
+            Navigation
+                    .findNavController(binding.getRoot())
+                    .popBackStack();
         });
 
         return binding.getRoot();
-    }
-
-    private void moveToGeneratorFragment() {
-        Navigation
-                .findNavController(binding.getRoot())
-                .navigate(R.id.action_amusementFragment_to_generatorFragment);
     }
 }

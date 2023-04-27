@@ -9,21 +9,13 @@
         android:id="@+id/themesFragment"
         android:name="com.example.amuseme.ThemesFragment"
         android:label="fragment_themes"
-        tools:layout="@layout/fragment_themes">
-        <action
-            android:id="@+id/action_themesFragment_to_generatorFragment"
-            app:destination="@id/generatorFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_themes"/>
 
     <fragment
         android:id="@+id/amusementFragment"
         android:name="com.example.amuseme.AmusementFragment"
         android:label="AmusementFragment"
-        tools:layout="@layout/fragment_amusement">
-        <action
-            android:id="@+id/action_amusementFragment_to_generatorFragment"
-            app:destination="@id/generatorFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_amusement"/>
 
     <fragment
         android:id="@+id/generatorFragment"
@@ -32,10 +24,18 @@
         tools:layout="@layout/fragment_generator" >
         <action
             android:id="@+id/action_generatorFragment_to_themesFragment"
-            app:destination="@id/themesFragment" />
+            app:destination="@id/themesFragment"
+            app:enterAnim="@anim/fragment_slide_in_right"
+            app:exitAnim="@anim/fragment_slide_out_left"
+            app:popEnterAnim="@anim/fragment_slide_in_left"
+            app:popExitAnim="@anim/fragment_slide_out_right" />
         <action
             android:id="@+id/action_generatorFragment_to_amusementFragment"
-            app:destination="@id/amusementFragment" />
+            app:destination="@id/amusementFragment"
+            app:enterAnim="@anim/fragment_slide_in_right"
+            app:exitAnim="@anim/fragment_slide_out_left"
+            app:popEnterAnim="@anim/fragment_slide_in_left"
+            app:popExitAnim="@anim/fragment_slide_out_right" />
     </fragment>
 
 </navigation>
