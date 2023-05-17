@@ -1,7 +1,6 @@
 package com.example.amuseme;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.amuseme.databinding.FragmentThemesBinding;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class ThemesFragment extends Fragment {
     FragmentThemesBinding binding;
-    ArrayList<Theme> themes;
+    ArrayList<ThemeItemRecycler> themes;
 
     @Nullable
     @Override
@@ -44,11 +42,11 @@ public class ThemesFragment extends Fragment {
     private void initThemes() {
         themes = new ArrayList<>();
 
-        themes.add(new Theme(
+        themes.add(new ThemeItemRecycler(
                 "Фильмы и сериалы",
                 "В интернете так много фильмов и сериалов, но какой же выбрать? Мы подберём вам лучшее кино!",
                 R.drawable.theme_img_1, R.drawable.theme_img_1_bw));
-        themes.add(new Theme(
+        themes.add(new ThemeItemRecycler(
                 "Физическая активность",
                 "Возможно, стоит немного размять тело? Физическая нагрузка полезна для человека!",
                 R.drawable.theme_img_2, R.drawable.theme_img_2_bw));

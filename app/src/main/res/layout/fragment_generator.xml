@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/tempGradientStart"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context=".GeneratorFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,7 @@
             android:fontFamily="@font/roboto_regular"
             android:text="@string/generator_help"
             android:textAlignment="center"
-            android:textColor="@color/tempWhite"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/generatorLoaderLayout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,7 @@
             app:layout_constraintEnd_toStartOf="@id/controlBarSpace"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="19dp"/>
 
         <Space
             android:id="@+id/controlBarSpace"
@@ -113,7 +113,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/controlBarSpace"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/tempWhite"
+            app:tint="@color/white"
             android:layout_marginEnd="4dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

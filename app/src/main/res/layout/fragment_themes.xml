@@ -7,7 +7,7 @@
     tools:context=".ThemesFragment"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/tempGradientStart">
+    android:background="@color/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/themesContentLayout"
@@ -36,7 +36,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/controlBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="64dp"
         app:layout_constraintBottom_toTopOf="@id/themesContentLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/controlBarTitle"
-            app:tint="@color/tempWhite"
+            app:tint="@color/white"
             android:layout_marginStart="4dp"/>
 
         <TextView
@@ -64,10 +64,11 @@
             app:layout_constraintStart_toEndOf="@id/controlBarBack"
             app:layout_constraintEnd_toStartOf="@id/controlBarSpace"
             android:text="@string/themes_fragment_title"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/roboto_medium"
             android:textSize="18sp"
-            android:textColor="@color/tempWhite"
-            android:layout_marginStart="4dp"/>
+            android:textColor="@color/white"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="2dp"/>
 
         <Space
             android:id="@+id/controlBarSpace"

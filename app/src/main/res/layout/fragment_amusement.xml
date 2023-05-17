@@ -46,7 +46,7 @@
             android:text="@string/amusement_title_holder"
             android:fontFamily="@font/roboto_medium"
             android:textSize="26sp"
-            android:textColor="@color/tempWhite"
+            android:textColor="@color/white"
             android:layout_marginBottom="6dp"/>
 
         <TextView
@@ -60,8 +60,8 @@
             android:text="@string/amusement_desc_holder"
             android:fontFamily="@font/roboto_regular"
             android:textSize="18sp"
-            android:textColor="@color/tempDarkWhite"
-            android:layout_marginBottom="20dp"/>
+            android:textColor="@color/gray_100"
+            android:layout_marginBottom="11dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/amusementButtonsContainer"
@@ -70,19 +70,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/amusementDesc">
+            app:layout_constraintTop_toBottomOf="@id/amusementDesc"
+            android:layout_marginStart="-10dp">
 
             <ImageView
                 android:id="@+id/amusementViewsIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/icon_eye"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/amusementViewsText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:contentDescription="@string/eye_desc"
-                app:tint="@color/tempDarkWhite" />
+                app:tint="@color/gray_100" />
 
             <TextView
                 android:id="@+id/amusementViewsText"
@@ -90,13 +91,12 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/zero"
-                android:textColor="@color/tempWhite"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/amusementButtonsContainerSpace"
                 app:layout_constraintStart_toEndOf="@id/amusementViewsIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="7dp"/>
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <Space
                 android:id="@+id/amusementButtonsContainerSpace"
@@ -109,15 +109,15 @@
 
             <ImageView
                 android:id="@+id/amusementDislikesIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/icon_dislike"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/amusementDislikesText"
                 app:layout_constraintStart_toEndOf="@id/amusementButtonsContainerSpace"
                 app:layout_constraintTop_toTopOf="parent"
                 android:contentDescription="@string/dislike_desc"
-                app:tint="@color/tempDarkWhite" />
+                app:tint="@color/gray_100" />
 
             <CheckBox
                 android:visibility="gone"
@@ -135,26 +135,25 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/zero"
-                android:textColor="@color/tempWhite"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/amusementLikesIcon"
                 app:layout_constraintStart_toEndOf="@id/amusementDislikesIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="7dp"/>
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
                 android:id="@+id/amusementLikesIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/icon_like"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/amusementLikesText"
                 app:layout_constraintStart_toEndOf="@id/amusementDislikesText"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 android:contentDescription="@string/like_desc"
-                app:tint="@color/tempDarkWhite" />
+                app:tint="@color/gray_100" />
 
             <CheckBox
                 android:visibility="gone"
@@ -172,13 +171,12 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/zero"
-                android:textColor="@color/tempWhite"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/amusementLikesIcon"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="7dp"/>
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -205,7 +203,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            app:tint="@color/tempWhite"
+            app:tint="@color/white"
             android:layout_marginStart="4dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

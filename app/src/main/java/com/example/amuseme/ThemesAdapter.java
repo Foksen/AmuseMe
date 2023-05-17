@@ -14,9 +14,9 @@ import com.example.amuseme.databinding.ThemeItemBinding;
 import java.util.ArrayList;
 
 public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ThemeViewHolder> {
-    private final ArrayList<Theme> data;
+    private final ArrayList<ThemeItemRecycler> data;
 
-    public ThemesAdapter(ArrayList<Theme> data) {
+    public ThemesAdapter(ArrayList<ThemeItemRecycler> data) {
         this.data = data;
     }
 
@@ -31,7 +31,7 @@ public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ThemeViewH
 
     @Override
     public void onBindViewHolder(@NonNull ThemeViewHolder holder, int position) {
-        Theme item = data.get(position);
+        ThemeItemRecycler item = data.get(position);
         holder.binding.themeTitle.setText(item.themeTitle);
         holder.binding.themeDesc.setText(item.themeDesc);
 
@@ -41,14 +41,14 @@ public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ThemeViewH
             holder.binding.themeImg.setImageResource(item.themeImgID);
         } catch (Exception e) {
             Log.e("AMUSE_ME", e.getMessage());
-            holder.binding.themeImg.setImageResource(Theme.defaultImgID);
+            holder.binding.themeImg.setImageResource(ThemeItemRecycler.defaultImgID);
         }
 
         try {
             holder.binding.themeImgBW.setImageResource(item.themeImgBWID);
         } catch (Exception e) {
             Log.e("AMUSE_ME", e.getMessage());
-            holder.binding.themeImgBW.setImageResource(Theme.defaultImgBWID);
+            holder.binding.themeImgBW.setImageResource(ThemeItemRecycler.defaultImgBWID);
         }
 
         holder.binding.themeCheckbox.setChecked(false);
