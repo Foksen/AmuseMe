@@ -36,7 +36,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AmusementFragment extends Fragment {
     FragmentAmusementBinding binding;
     AmusementItemResponse amusementItem;
-    public static Bitmap amusementImg;
 
     @SuppressLint("SetTextI18n")
     @Nullable
@@ -80,9 +79,9 @@ public class AmusementFragment extends Fragment {
             }
         });
 
-        binding.controlBarBack.setOnClickListener((View v) -> Navigation
-                .findNavController(binding.getRoot())
-                .popBackStack());
+        binding.controlBarBack.setOnClickListener((View v) -> {
+            Navigation.findNavController(binding.getRoot()).popBackStack();
+        });
 
         return binding.getRoot();
     }

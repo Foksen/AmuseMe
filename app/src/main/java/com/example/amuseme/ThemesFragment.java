@@ -14,41 +14,32 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.amuseme.databinding.FragmentThemesBinding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ThemesFragment extends Fragment {
     FragmentThemesBinding binding;
-    ArrayList<ThemeItemRecycler> themes;
+    public static final ArrayList<ThemeItemRecycler> themes = new ArrayList<>(Arrays.asList(
+            new ThemeItemRecycler(1, "Фильмы и сериалы",
+                    "В интернете так много фильмов и сериалов, но какой же выбрать? Мы подберём вам лучшее кино!",
+                    R.drawable.theme_img_1, R.drawable.theme_img_1_bw),
+            new ThemeItemRecycler(2, "Физическая активность",
+                    "Возможно, стоит немного размять тело? Физическая нагрузка полезна для человека!",
+                    R.drawable.theme_img_2, R.drawable.theme_img_2_bw)
+    ));
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentThemesBinding.inflate(inflater, container, false);
-        initThemes();
 
         ThemesAdapter adapter = new ThemesAdapter(themes);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.recyclerView.setAdapter(adapter);
 
         binding.controlBarBack.setOnClickListener((View v) -> {
-            // TODO: make animation during navigation
-            Navigation
-                    .findNavController(binding.getRoot())
-                    .popBackStack();
+            Navigation.findNavController(binding.getRoot()).popBackStack();
         });
 
         return binding.getRoot();
-    }
-
-    private void initThemes() {
-        themes = new ArrayList<>();
-
-        themes.add(new ThemeItemRecycler(
-                "Фильмы и сериалы",
-                "В интернете так много фильмов и сериалов, но какой же выбрать? Мы подберём вам лучшее кино!",
-                R.drawable.theme_img_1, R.drawable.theme_img_1_bw));
-        themes.add(new ThemeItemRecycler(
-                "Физическая активность",
-                "Возможно, стоит немного размять тело? Физическая нагрузка полезна для человека!",
-                R.drawable.theme_img_2, R.drawable.theme_img_2_bw));
     }
 }

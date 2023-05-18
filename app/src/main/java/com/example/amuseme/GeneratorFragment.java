@@ -1,8 +1,10 @@
 package com.example.amuseme;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,15 +32,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GeneratorFragment extends Fragment {
     FragmentGeneratorBinding binding;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor sharedPreferencesEditor;
     Disposable disposable;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentGeneratorBinding.inflate(inflater, container, false);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        sharedPreferencesEditor = sharedPreferences.edit();
 
         binding.controlBarMenu.setOnClickListener((View v) -> {
-            // TODO: make animation during navigation
             moveToThemesFragment();
         });
 
@@ -53,10 +58,21 @@ public class GeneratorFragment extends Fragment {
                     .build();
 
             AmuseMeServerAPI amuseMeServerAPI = retrofit.create(AmuseMeServerAPI.class);
-            disposable = amuseMeServerAPI.getRandAmusement("")
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(this::onSuccess, this::onError, this::onComplete, this::onSubscribe);
+            String themesRequest = getThemesRequest();
+            if (themesRequest.equals("")) {
+                Toast.makeText(getContext(), "Выберите хотя бы одну тему", Toast.LENGTH_SHORT).show();
+                moveToThemesFragment();
+            }
+            else {
+                disposable = amuseMeServerAPI.getRandAmusement(getThemesRequest())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(this::onSuccess, exception -> {
+                            Log.e("AMUSE_ME", exception.toString());
+                            Toast.makeText(getContext(), "Error during request [getRandAmusement]", Toast.LENGTH_SHORT).show();
+                        });
+            }
+
         });
 
         return binding.getRoot();
@@ -67,10 +83,6 @@ public class GeneratorFragment extends Fragment {
         super.onDestroy();
         disposable.dispose();
     }
-
-    private void onSubscribe(Disposable d) { }
-
-    private void onComplete() { }
 
     private void onSuccess(AmusementItemResponse item) {
         Bundle bundle = new Bundle();
@@ -84,11 +96,6 @@ public class GeneratorFragment extends Fragment {
         moveToAmusementFragment(bundle);
     }
 
-    private void onError(Throwable t) {
-        Log.e("AMUSE_ME", t.toString());
-        Toast.makeText(getContext(), "Error during request [getRandAmusement]", Toast.LENGTH_SHORT).show();
-    }
-
     private void moveToThemesFragment() {
         Navigation
                 .findNavController(binding.getRoot())
@@ -99,5 +106,22 @@ public class GeneratorFragment extends Fragment {
         Navigation
                 .findNavController(binding.getRoot())
                 .navigate(R.id.action_generatorFragment_to_amusementFragment, bundle);
+    }
+
+    private String getThemesRequest() {
+        StringBuilder request = new StringBuilder();
+        for (ThemeItemRecycler item : ThemesFragment.themes) {
+            if (!sharedPreferences.contains(Integer.toString(item.themeId))) {
+                sharedPreferencesEditor.putBoolean(Integer.toString(item.themeId), true);
+                sharedPreferencesEditor.apply();
+            }
+            if (sharedPreferences.getBoolean(Integer.toString(item.themeId), true)) {
+                if (request.length() > 0) {
+                    request.append("_");
+                }
+                request.append(item.themeId);
+            }
+        }
+        return request.toString();
     }
 }
