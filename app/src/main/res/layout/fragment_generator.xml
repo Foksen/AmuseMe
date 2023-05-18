@@ -85,14 +85,15 @@
         <ImageView
             android:id="@+id/controlBarLogo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:contentDescription="@string/logo_desc"
-            android:src="@drawable/icon_logo"
+            android:src="@drawable/icon_logo_dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/controlBarSpace"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="19dp"/>
+            android:layout_marginStart="19dp"
+            android:adjustViewBounds="true"/>
 
         <Space
             android:id="@+id/controlBarSpace"
