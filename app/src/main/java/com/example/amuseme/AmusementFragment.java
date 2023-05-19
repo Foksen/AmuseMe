@@ -36,6 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AmusementFragment extends Fragment {
     FragmentAmusementBinding binding;
     AmusementItemResponse amusementItem;
+    public static Bitmap imageBitmap;
 
     @SuppressLint("SetTextI18n")
     @Nullable
@@ -119,17 +120,10 @@ public class AmusementFragment extends Fragment {
         binding.amusementDislikesCheckbox.setChecked(false);
         binding.amusementLikesCheckbox.setChecked(false);
 
-        if (!Objects.equals(amusementItem.imgUrl, "")) {
-            try {
-                Picasso.get().load(amusementItem.imgUrl).into(binding.amusementImg);
-            } catch (Exception e) {
-                binding.amusementImg.setImageResource(R.drawable.amusement_img_default);
-                Log.e("AMUSE_ME", e.toString());
-            }
-        }
-        else {
-            binding.amusementImg.setImageResource(R.drawable.amusement_img_default);
-        }
+        binding.amusementImg.setImageBitmap(imageBitmap);
+
+/*        Picasso.get().load(amusementItem.imgUrl).placeholder(R.drawable.amusement_img_default)
+                .error(R.drawable.theme_img_default).into(binding.amusementImg);*/
     }
 
     @SuppressLint("CheckResult")
