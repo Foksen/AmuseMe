@@ -53,6 +53,8 @@ public class GeneratorFragment extends Fragment {
     boolean isAmusementLoaded;
     AmusementItemResponse amusementItemResponse;
 
+    Target picassoImageTarget;
+
     @SuppressLint("ClickableViewAccessibility")
     @Nullable
     @Override
@@ -91,7 +93,6 @@ public class GeneratorFragment extends Fragment {
                                             .observeOn(AndroidSchedulers.mainThread())
                                             .subscribe(this::onSuccess, exception -> {
                                                 Log.e("AMUSE_ME", exception.toString());
-                                                Toast.makeText(getContext(), "Error during request [getRandAmusement]", Toast.LENGTH_SHORT).show();
                                             });
                                 }
                             })
@@ -125,7 +126,7 @@ public class GeneratorFragment extends Fragment {
 
     private void onSuccess(AmusementItemResponse item) {
         amusementItemResponse = item;
-        Picasso.get().load(item.imgUrl).into(new Target() {
+        picassoImageTarget = new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                 AmusementFragment.imageBitmap = bitmap;
@@ -137,7 +138,6 @@ public class GeneratorFragment extends Fragment {
             @Override
             public void onBitmapFailed(Exception e, Drawable errorDrawable) {
                 Log.e("AMUSE_ME", e.toString());
-                Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
                 AmusementFragment.imageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.amusement_img_default);
                 isAmusementLoaded = true;
                 if (isAnimLoaded) {
@@ -146,7 +146,8 @@ public class GeneratorFragment extends Fragment {
             }
             @Override
             public void onPrepareLoad(Drawable placeHolderDrawable) { }
-        });
+        };
+        Picasso.get().load(item.imgUrl).into(picassoImageTarget);
     }
 
     private Bundle bundleFromAmusementItemResponse() {
