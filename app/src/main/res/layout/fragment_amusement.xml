@@ -61,7 +61,7 @@
             android:fontFamily="@font/roboto_regular"
             android:textSize="18sp"
             android:textColor="@color/gray_100"
-            android:layout_marginBottom="11dp"/>
+            android:layout_marginBottom="15dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/amusementButtonsContainer"

@@ -136,7 +136,13 @@ public class GeneratorFragment extends Fragment {
             }
             @Override
             public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                Log.e("AMUSE_ME", e.toString());
+                Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
                 AmusementFragment.imageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.amusement_img_default);
+                isAmusementLoaded = true;
+                if (isAnimLoaded) {
+                    moveToAmusementFragment(bundleFromAmusementItemResponse());
+                }
             }
             @Override
             public void onPrepareLoad(Drawable placeHolderDrawable) { }
