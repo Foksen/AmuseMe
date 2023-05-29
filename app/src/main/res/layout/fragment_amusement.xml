@@ -44,9 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/amusementDesc"
             android:text="@string/amusement_title_holder"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="26sp"
-            android:textColor="@color/white"
+            style="@style/amusementTitleStyle"
             android:layout_marginBottom="6dp"/>
 
         <TextView
@@ -58,9 +56,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/amusementButtonsContainer"
             android:text="@string/amusement_desc_holder"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="18sp"
-            android:textColor="@color/gray_100"
+            style="@style/amusementDescStyle"
             android:layout_marginBottom="15dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -89,10 +85,8 @@
                 android:id="@+id/amusementViewsText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/roboto_medium"
                 android:text="@string/zero"
-                android:textColor="@color/white"
-                android:textSize="16sp"
+                style="@style/amusementButtonsTextStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/amusementButtonsContainerSpace"
                 app:layout_constraintStart_toEndOf="@id/amusementViewsIcon"
@@ -133,10 +127,8 @@
                 android:id="@+id/amusementDislikesText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/roboto_medium"
                 android:text="@string/zero"
-                android:textColor="@color/white"
-                android:textSize="16sp"
+                style="@style/amusementButtonsTextStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/amusementLikesIcon"
                 app:layout_constraintStart_toEndOf="@id/amusementDislikesIcon"
@@ -169,10 +161,8 @@
                 android:id="@+id/amusementLikesText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/roboto_medium"
                 android:text="@string/zero"
-                android:textColor="@color/white"
-                android:textSize="16sp"
+                style="@style/amusementButtonsTextStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/amusementLikesIcon"
@@ -185,7 +175,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/controlBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/controlBarHeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

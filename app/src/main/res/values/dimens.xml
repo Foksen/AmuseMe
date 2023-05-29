@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="themeItemTitleSize">18sp</dimen>
+    <dimen name="themeItemDescSize">16sp</dimen>
+
+    <dimen name="controlBarHeight">64dp</dimen>
+    <dimen name="controlBarTitleSize">18sp</dimen>
+
+    <dimen name="generatorHelpSize">18sp</dimen>
+
+    <dimen name="amusementTitleSize">26sp</dimen>
+    <dimen name="amusementDescSize">18sp</dimen>
+    <dimen name="amusementButtonsTextSize">16sp</dimen>
+
+</resources>

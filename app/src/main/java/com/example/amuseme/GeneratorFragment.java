@@ -1,6 +1,5 @@
 package com.example.amuseme;
 
-import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -23,20 +22,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.amuseme.databinding.FragmentAmusementBinding;
 import com.example.amuseme.databinding.FragmentGeneratorBinding;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import java.io.IOException;
-import java.util.Objects;
-
-import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.HttpException;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -91,9 +85,7 @@ public class GeneratorFragment extends Fragment {
                                     disposable = amuseMeServerAPI.getRandAmusement(getThemesRequest())
                                             .subscribeOn(Schedulers.io())
                                             .observeOn(AndroidSchedulers.mainThread())
-                                            .subscribe(this::onSuccess, exception -> {
-                                                Log.e("AMUSE_ME", exception.toString());
-                                            });
+                                            .subscribe(this::onSuccess, this::onError);
                                 }
                             })
                             .withEndAction(() -> {
@@ -150,6 +142,23 @@ public class GeneratorFragment extends Fragment {
         Picasso.get().load(item.imgUrl).into(picassoImageTarget);
     }
 
+    private void onError(Throwable t) {
+        binding.generatorLoaderActive.animate().cancel();
+        isAnimLoaded = false;
+        isAmusementLoaded = false;
+        Bundle bundle = new Bundle();
+        if (t instanceof HttpException) {
+            bundle.putInt("errorCode", ErrorTypes.CODE_2_INTERNAL_ERROR);
+        }
+        else if (t instanceof IOException) {
+            bundle.putInt("errorCode", ErrorTypes.CODE_1_CONNECTION_ERROR);
+        }
+        else {
+            bundle.putInt("errorCode", ErrorTypes.CODE_0_UNKNOWN_ERROR);
+        }
+        moveToErrorFragment(bundle);
+    }
+
     private Bundle bundleFromAmusementItemResponse() {
         Bundle bundle = new Bundle();
         bundle.putInt("id", amusementItemResponse.id);
@@ -189,5 +198,11 @@ public class GeneratorFragment extends Fragment {
         Navigation
                 .findNavController(binding.getRoot())
                 .navigate(R.id.action_generatorFragment_to_amusementFragment, bundle);
+    }
+
+    private void moveToErrorFragment(Bundle bundle) {
+        Navigation
+                .findNavController(binding.getRoot())
+                .navigate(R.id.action_generatorFragment_to_errorFragment, bundle);
     }
 }

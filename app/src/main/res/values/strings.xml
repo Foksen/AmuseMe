@@ -24,4 +24,16 @@
     <string name="amusement_title_holder">Amusement title</string>
     <string name="amusement_desc_holder">Amusement holder. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPellentesque quis ex vitae nulla maximus cursus. Aenean lorem elit, mattis sit amet euismod eu, mollis vel justo</string>
 
+    <string name="error_img_desc">Error image</string>
+    <string name="error_title_holder">Error title</string>
+    <string name="error_desc_holder">Error holder. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis ex vitae nulla maximus cursus</string>
+    <string name="error_btn_text">Главная</string>
+
+    <string name="error_0_title">Неизвестная ошибка</string>
+    <string name="error_0_desc">Произошла неизвестная ошибка. Пожалуйста, отправьте письмо на почту с описанием своих действий: izholobov2004@gmail.com</string>
+    <string name="error_1_title">Нет подключения к Интернету</string>
+    <string name="error_1_desc">Не удаётся подключиться к серверу. Вернитесь на главную и проверьте своё подключение к сети Интернет</string>
+    <string name="error_2_title">Ошибка при обработке запроса</string>
+    <string name="error_2_desc">Попробуйте сделать ещё одну попытку через 5 мин. Если проблема осталась - напишите об этом на почту: izholobov2004@gmail.com</string>
+
 </resources>

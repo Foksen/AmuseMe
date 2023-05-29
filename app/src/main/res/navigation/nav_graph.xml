@@ -36,6 +36,17 @@
             app:exitAnim="@anim/fragment_slide_out_left"
             app:popEnterAnim="@anim/fragment_slide_in_left"
             app:popExitAnim="@anim/fragment_slide_out_right" />
+        <action
+            android:id="@+id/action_generatorFragment_to_errorFragment"
+            app:destination="@id/errorFragment"
+            app:enterAnim="@anim/fragment_slide_in_right"
+            app:exitAnim="@anim/fragment_slide_out_left"
+            app:popEnterAnim="@anim/fragment_slide_in_left"
+            app:popExitAnim="@anim/fragment_slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.example.amuseme.ErrorFragment"
+        android:label="ErrorFragment" />
 
 </navigation>

@@ -57,9 +57,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
             android:text="@string/theme_title_holder"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="18sp"
-            android:textColor="@color/white"/>
+            style="@style/themeItemTitleStyle"/>
 
         <TextView
             android:id="@+id/themeDesc"
@@ -70,9 +68,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/themeTitle"
             android:text="@string/theme_desc_holder"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="16sp"
-            android:textColor="@color/gray_100"/>
+            style="@style/themeItemDescStyle"/>
 
         <CheckBox
             android:id="@+id/themeCheckbox"

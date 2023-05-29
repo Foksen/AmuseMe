@@ -23,16 +23,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
-            android:fontFamily="@font/roboto_regular"
             android:text="@string/generator_help"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/generatorLoaderLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            style="@style/generatorHelpTextStyle"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/generatorLoaderLayout"
@@ -76,7 +74,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/controlBar"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="@dimen/controlBarHeight"
         app:layout_constraintBottom_toTopOf="@id/generatorContentLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
